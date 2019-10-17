@@ -8,6 +8,11 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.bio
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return instagramapp    
     
 class Image (models.Model):
     image = models.ImageField(upload_to = 'images/')
