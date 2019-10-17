@@ -6,18 +6,18 @@
   <div class="row"> 
     <!-- Empty div -->
     <div class="col-md-4">
-        <img src="https://techthelead.com/wp-content/uploads/2017/11/instagram-stories-old.jpg" alt="" height="300" width="300">
+        <img src="https://techthelead.com/wp-content/uploads/2017/11/instagram-stories-old.jpg" alt="" height="385" width="300">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       {% if form.errors %}
         <p> Password or Username is incorrect </p>
       {% endif %}
-      <div class="panel panel-default">
+      <div class="card">
 
-        <div class="panel-heading">
+        <div class="card-header">
           <h3 class="text-center">Sign In</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
 
           <form  action="/accounts/login/" method="post">
             {% csrf_token %}
@@ -32,16 +32,12 @@
           </form>
 
         </div>
-        <p>Don't you have an account  <a class="btn btn-primary btn-sm" href="/accounts/register/"> Sign Up </a> </p>
-
-
-  
-
+        <p style="margin-left: 15px"> Don't you have an account  <a class="btn btn-primary btn-sm" style="margin: 5px" href="/accounts/register/"> Sign Up </a> </p>
       </div>
 
     </div>
     <!-- empty div -->
-    <div class="col-md-4"></div>
+    <div class="col-md-3"></div>
   </div>
 </div>
 
