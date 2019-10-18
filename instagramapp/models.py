@@ -20,7 +20,7 @@ class Image (models.Model):
     image = models.ImageField(upload_to = 'images/')
     name = models.CharField(max_length =40)
     caption= HTMLField()
-    likes = models.IntegerField(default='none')
+    likes = models.IntegerField(default=0)
     comments= models.CharField(max_length =100)
     profile = models.ForeignKey(Profile,null = True)
     poster = models.ForeignKey(User,on_delete=models.CASCADE, null = True) 

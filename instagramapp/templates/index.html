@@ -3,37 +3,52 @@
 {% block content %}
 {{block.super}}
 
-<div class="container" >     <br> <br>
+<div class="container"> <br> <br>
+  <!--  -->
+  <div class="row">
+      {% for profil in profile %}
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{profil.profile.url}}" class="img-responsive" alt="Image" height="300px" width="300px"
+          style=" margin: 10px;">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+        <p>{{profil.bio}}</p>
+
+      </div>
+
+      {% endfor %}
+    </div>
+  <!--  -->
   <div style="border-style: ridge;">
+    {% for image in images %}
 
-  {% for image in images %}
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px"
+          style=" margin: 10px;">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px" style=" margin: 10px;">
+        <p>{{image.name}}</p>
+        <p>
+          {% autoescape on %}
+          {{image.caption| safe}}
+          {% endautoescape %}
+        </p>
+
+        <!-- <p>{{image.likes}}</p> -->
+        <p>{{image.comments}}</p>
+        <!-- <p>{{image.profile}}</p> -->
+      </div>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-6 col-lg-4">
 
-      <p>{{image.name}}</p>
-      <p>
-        {% autoescape on %}
-        {{image.caption| safe}}
-        {% endautoescape %}
-      </p>
-
-      <p>{{image.likes}}</p>
-      <p>{{image.comments}}</p>
-      <p>{{image.profile}}</p>
-
+    {% empty %}
+    <div class="row">
+      <h2 class="text-center">There No News Items</h2>
     </div>
+    {% endfor %} <br>
   </div>
-
-  {% empty %}
-  <div class="row">
-    <h2 class="text-center">There No News Items</h2>
-  </div>
-  {% endfor %} <br> 
-</div>
 </div>
 
 {% endblock %}

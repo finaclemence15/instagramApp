@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import Image
+from .models import Image, Profile
 from .forms import NewImageForm
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def welcome(request):
     images = Image.objects.all()
-    return render(request, 'index.html', {'images': images})
+    profile = Profile.objects.all()
+    return render(request, 'index.html', {'images': images}, {'profile': profile})
 
 def search_results(request):
 
