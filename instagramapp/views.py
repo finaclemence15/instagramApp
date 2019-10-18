@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Image
 from .forms import NewImageForm
 
@@ -31,7 +31,7 @@ def new_post(request):
             image = form.save(commit=False)
             image.poster = current_user
             image.save()
-        return redirect('new_post')
+        return redirect('welcome')
 
     else:
         form = NewImageForm()

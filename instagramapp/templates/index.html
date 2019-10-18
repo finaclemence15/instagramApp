@@ -3,40 +3,37 @@
 {% block content %}
 {{block.super}}
 
-<div class="container">
-        <!-- Looping through news   -->
-      
-      
-        {% for image in images %}
+<div class="container" >     <br> <br>
+  <div style="border-style: ridge;">
 
-        <div class="row">
-      
-          <!-- displaying News articles -->
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <!-- <h2 class="text-center" > {{ image.image }} </h2> <br> -->
-            <p>{{image.name}}</p>
-            <p> <em>{{image.caption}}</em></p>
+  {% for image in images %}
 
-             <p>{{image.likes}}</p>
-             <p>{{image.comments}}</p>
-             <!-- <p>{{image.profile}}</p> -->
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px" style=" margin: 10px;">
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-6 col-lg-4">
 
-          </div>
-      
-              <!--Display news Article images  --> 
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><br> <br> <br>
-                <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px">
-              </div>
-      
-      
-        </div>
-      
-        {% empty %}
-        <div class="row">
-          <h2 class="text-center">There No News Items</h2>
-        </div>
-        {% endfor %}
+      <p>{{image.name}}</p>
+      <p>
+        {% autoescape on %}
+        {{image.caption| safe}}
+        {% endautoescape %}
+      </p>
 
-      </div>
-      
+      <p>{{image.likes}}</p>
+      <p>{{image.comments}}</p>
+      <p>{{image.profile}}</p>
+
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No News Items</h2>
+  </div>
+  {% endfor %} <br> 
+</div>
+</div>
+
 {% endblock %}
