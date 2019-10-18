@@ -5,20 +5,20 @@
 
 <div class="container"> <br> <br>
   <!--  -->
-  <div class="row">
+
       {% for profil in profile %}
+      <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{profil.profile.url}}" class="img-responsive" alt="Image" height="300px" width="300px"
-          style=" margin: 10px;">
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-
+          <img src="{{profil.profile.url}}" class="img-responsive" alt="Image" height="300px" width="300px"
+          style=" margin: 10px;">
         <p>{{profil.bio}}</p>
 
       </div>
-
-      {% endfor %}
     </div>
+      {% endfor %}
+
   <!--  -->
   <div style="border-style: ridge;">
     {% for image in images %}
