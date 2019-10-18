@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Image
+from .forms import NewImageForm
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -20,3 +21,18 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-news/search.html',{"message":message})
+    
+@login_required(login_url='/accounts/login/')
+def new_post(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.poster = current_user
+            image.save()
+        return redirect('new_post')
+
+    else:
+        form = NewImageForm()
+    return render(request, 'new_post.html', {"form": form})    
