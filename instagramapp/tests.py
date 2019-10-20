@@ -28,3 +28,10 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images) == 0)    
         
+    # Testing  update method of Location model    
+    def test_update(self):
+        self.pizza.save_image()
+        image = Image.objects.filter(name = 'pizza').first()
+        update = Image.objects.filter(id = image.id).update(name = 'cake')
+        updated = Image.objects.filter(name = 'cake').first()
+        self.assertNotEqual(image.name, updated.name)        
