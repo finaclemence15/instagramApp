@@ -14,10 +14,10 @@ def search_results(request):
 
     if 'profile' in request.GET and request.GET["profile"]:
         search_term = request.GET.get("profile")
-        searched_profile = Profile.search_by_title(search_term)
+        searched_profile = Profile.search_by_username(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-news/search.html',{"message":message,"articles": searched_profile})
+        return render(request, 'all-news/search.html',{"message":message,"profiles": searched_profile})
 
     else:
         message = "You haven't searched for any term"
