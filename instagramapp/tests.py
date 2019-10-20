@@ -7,6 +7,7 @@ class ImageTestClass(TestCase):
             # Set up method
     def setUp(self):
         self.butterfly= Image(image = 'book.jpg', name ='butterfly', caption ='about butterfly')
+        self.pizza= Image(image = 'piza.jpg', name ='pizza', caption ='about pizza')
         
         # Testing  instance
     def test_instance(self):
@@ -16,4 +17,14 @@ class ImageTestClass(TestCase):
     def test_save_method(self):
         self.butterfly.save_image()
         images = Image.objects.all()
-        self.assertTrue(len(images) > 0)        
+        self.assertTrue(len(images) > 0)  
+        
+    # Testing  delete method of Image model     
+    def test_delete(self):
+        self.pizza= Image(image = 'piza.jpg', name ='pizza', caption ='about pizza')
+        self.pizza.save_image()
+        image = Image.objects.filter(name = 'pizza').first()
+        delete = Image.objects.filter(id = image.id).delete()
+        images = Image.objects.all()
+        self.assertTrue(len(images) == 0)    
+        
