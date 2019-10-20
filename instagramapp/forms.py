@@ -4,7 +4,7 @@ from .models import Image, Profile, Comments
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['comments', 'profile','username']
+        exclude = ['comments', 'profile','name']
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }
