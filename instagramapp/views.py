@@ -42,21 +42,22 @@ def new_post(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
+    profile = Profile.objects.filter(id=current_user.id)
     if request.method == 'POST':
         form = NewProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.bio = current_user
             profile.save()
-        return redirect('myaccount')
+        return redirect('profile')
 
     else:
         form = NewProfileForm()
     return render(request, 'profile.html', {"form": form}) 
 
-@login_required(login_url='/accounts/login/')
-def myaccount(request):
-  current_user = request.user
-  myImage = Image.objects.filter(name=current_user)
-  myProfile = Profile.objects.filter(profile = current_user).first()
-  return render(request, 'profile.html', {"myImage":myImage, "myProfile":myProfile})
+# @login_required(login_url='/accounts/login/')
+# def myaccount(request):
+#   current_user = request.user
+#   myImage = Image.objects.filter(username=current_user)
+#   myProfile = Profile.objects.filter(username = current_user).first()
+#   return render(request, 'profile.html', {"myImage":myImage, "myProfile":myProfile})
