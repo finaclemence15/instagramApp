@@ -11,3 +11,9 @@ class ImageTestClass(TestCase):
         # Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.butterfly,Image))        
+        
+        # Testing Save Method of Image model
+    def test_save_method(self):
+        self.butterfly.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)        
