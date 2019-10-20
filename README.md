@@ -58,7 +58,7 @@ Open the app on your browser, by default on ``` http://127.0.0.1:8000/ ```
 * boostrap4
 * Django
 * python
-* Vs code
+* vs code
 * Git Hub
 * Terminal
 * Postgres database 
