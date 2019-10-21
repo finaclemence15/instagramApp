@@ -28,7 +28,7 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images) == 0)    
         
-    # Testing  update method of Location model    
+    # Testing  update method of Image model    
     def test_update(self):
         self.pizza.save_image()
         image = Image.objects.filter(name = 'pizza').first()
@@ -55,7 +55,7 @@ class ProfileTestClass(TestCase):
         images = Profile.objects.all()
         self.assertTrue(len(images) > 0)         
         
-    # Testing  delete method of Image model     
+    # Testing  delete method of Profile model     
     def test_delete(self):
         self.image= Profile(profile = 'img.jpg', bio ='image')
         self.image.save_profile()
@@ -63,4 +63,12 @@ class ProfileTestClass(TestCase):
         delete = Profile.objects.filter(id = image.id).delete()
         images = Profile.objects.all()
         self.assertTrue(len(images) == 0)            
+        
+    # Testing  update method of Profile model    
+    def test_update(self):
+        self.image.save_profile()
+        image = Profile.objects.filter(profile = 'img.jpg').first()
+        update = Profile.objects.filter(id = image.id).update(profile = 'cake.jpg')
+        updated = Profile.objects.filter(profile = 'cake.jpg').first()
+        self.assertNotEqual(image.profile, updated.profile)  
         
