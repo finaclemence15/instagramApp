@@ -54,3 +54,13 @@ class ProfileTestClass(TestCase):
         self.image.save_profile()
         images = Profile.objects.all()
         self.assertTrue(len(images) > 0)         
+        
+    # Testing  delete method of Image model     
+    def test_delete(self):
+        self.image= Profile(profile = 'img.jpg', bio ='image')
+        self.image.save_profile()
+        image = Profile.objects.filter(profile = 'img.jpg').first()
+        delete = Profile.objects.filter(id = image.id).delete()
+        images = Profile.objects.all()
+        self.assertTrue(len(images) == 0)            
+        
