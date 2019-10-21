@@ -1,10 +1,10 @@
 from django.test import TestCase
 from . models import Image, Profile, Comments
 
-# Create your tests here.
+# Image model test
 
 class ImageTestClass(TestCase):
-            # Set up method
+        # Set up method
     def setUp(self):
         self.butterfly= Image(image = 'book.jpg', name ='butterfly', caption ='about butterfly')
         self.pizza= Image(image = 'piza.jpg', name ='pizza', caption ='about pizza')
@@ -34,4 +34,17 @@ class ImageTestClass(TestCase):
         image = Image.objects.filter(name = 'pizza').first()
         update = Image.objects.filter(id = image.id).update(name = 'cake')
         updated = Image.objects.filter(name = 'cake').first()
-        self.assertNotEqual(image.name, updated.name)        
+        self.assertNotEqual(image.name, updated.name)  
+              
+# Profile model test  
+      
+class ProfileTestClass(TestCase):        
+    
+        # Set up method
+    def setUp(self):
+        self.image= Profile(profile = 'img.jpg', bio ='image')
+        # self.images= Profile(profile1 = 'piza1.jpg', bio ='pizza')
+        
+        # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.image,Profile))     
