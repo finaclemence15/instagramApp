@@ -4,12 +4,14 @@
 {{block.super}}
 
 <div class="container"> <br> <br>
-<div class="row">
-  <div class="col-md-5"></div>
-  <div class="col-md-4"></div> 
-  <div class="col-md-3">  <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile" height="50px" width="50px"
-    style="border-radius: 50%;"></div>
-</div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-3">
+      <a href="{%url 'myaccount'%}"> <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile"
+          height="50px" width="50px" style="border-radius: 50%;"> <strong> {{myProfile.username}} </strong></a>
+    </div>
+  </div>
 
   {% for image in images %}
 
@@ -20,6 +22,11 @@
         <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile" height="50px" width="50px"
           style="border-radius: 50%;"> <strong> {{image.username}} </strong><br> <br>
         <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="646px">
+        <br>
+        <button class="btn btn-sm btn-link" type="submit"><img class="" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-128.png" alt="" width="24px"></button>
+
+
+
         <p>{% autoescape on %} {{image.caption| safe}} {% endautoescape %} </p>
       </div>
     </div>
