@@ -1,37 +1,30 @@
 {%extends 'all-news/base.html'%}
-{% load bootstrap4 %} 
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block content %}
+{{block.super}}
 
-  <title>Profile</title>
-  {{form.media}}
+<div class="container"> <br> <br>
 
-  {% block styles %} 
-  {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
-  {% endblock %}
 
-</head>
+ 
 
-<body>
-<div class="container">
+  <div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 
-  <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
+    </div>
+    <div style="border-style: ridge;">
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"> <br>
+          <!-- <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile" height="50px" width="50px" style="border-radius: 50%;"> <strong> {{image.username}} </strong><br> <br> -->
+        <img src="{{myProfile.profile.url}}" class="img-responsive" alt="Image" height="300px" width="646px">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <p>{{myProfile.bio}}</p>
+       </div>
+  </div>
 
-    {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-  </form>
+ 
 
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
 </div>
-</body>
 
-</html>
+{% endblock %}

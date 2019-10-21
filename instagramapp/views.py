@@ -49,15 +49,14 @@ def profile(request):
             profile = form.save(commit=False)
             profile.bio = current_user
             profile.save()
-        return redirect('profile')
+        return redirect('myaccount')
 
     else:
         form = NewProfileForm()
     return render(request, 'profile.html', {"form": form}) 
 
-# @login_required(login_url='/accounts/login/')
-# def myaccount(request):
-#   current_user = request.user
-#   myImage = Image.objects.filter(username=current_user)
-#   myProfile = Profile.objects.filter(username = current_user).first()
-#   return render(request, 'profile.html', {"myImage":myImage, "myProfile":myProfile})
+@login_required(login_url='/accounts/login/')
+def myaccount(request):
+  current_user = request.user
+  myProfile = Profile.objects.filter(username = current_user).first()
+  return render(request, 'editProfile.html', {"myProfile":myProfile})

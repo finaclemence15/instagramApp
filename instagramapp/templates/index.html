@@ -9,11 +9,12 @@
   {% for image in images %}
 
   <div class="row">
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
     <div style="border-style: ridge;">
       <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"> <br>
+          <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile" height="50px" width="50px" style="border-radius: 50%;"> <strong> {{image.username}} </strong><br> <br>
         <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="646px">
-        <p> <strong> {{image.username}} </strong>{% autoescape on %} {{image.caption| safe}} {% endautoescape %} </p>
+        <p>{% autoescape on %} {{image.caption| safe}} {% endautoescape %} </p>
       </div>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> </div>
