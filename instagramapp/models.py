@@ -12,6 +12,15 @@ class Profile(models.Model):
     def __str__(self):
         return self.bio
 
+    def save_profile(self):
+        self.save()    
+        
+    def update_profile(self):
+        self.update()
+
+    def delete_profile(self):
+        self.delete()         
+
     @classmethod
     def search_user(cls,search_term):
         profiles = cls.objects.filter(bio__icontains=search_term)
