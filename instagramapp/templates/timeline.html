@@ -9,36 +9,32 @@
 
 
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-
-    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <br>
-      <!-- <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="profile" height="50px" width="50px" style="border-radius: 50%;"> <strong> {{image.username}} </strong><br> <br> -->
       <img src="{{myProfile.profile.url}}" class="img-responsive" alt="Image" height="150px" width="150px"
-        style="border-radius: 50%;">
-
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> <br> <br>
+        style="border-radius: 50%;"> <br> <br> 
       <p>{{myProfile.bio}}</p>
-      <p>{{myProfile.username}}</p>
-      <a href="{%url 'edit_profile'%}">
-        <button type="button" class="btn btn-dark"> <img src="https://image.flaticon.com/icons/svg/148/148926.svg"
-            height="25px;" width="25px" alt="">
-          Edit Profile</button> </a>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <br> <br>
+      <p>{{myProfile.username}}
+      <a href="{%url 'edit_profile'%}" style="margin: 10px; text-decoration: none;">
+        <button type="button" class="btn btn-default btn-inverse"><strong> Edit Profile</strong> </button> </a> 
+      <img src="https://image.flaticon.com/icons/svg/1242/1242494.svg" alt="settings" height="30px;"width="30px"></p>
 
     </div>
+    
   </div>
-<br> <br>
-  <!--  --> 
+  <br> <br>
+  <!--  -->
 
   {% for i in images %}
-  
+
   <div class="row">
-  
-      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"> <br>
-        <img src="{{i.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px">
-      </div>
+
+    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"> <br>
+      <img src="{{i.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px">
     </div>
+  </div>
 
   {% empty %}
   <div class="row">
