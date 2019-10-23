@@ -19,7 +19,8 @@
       <p>{{myProfile.username}}
       <a href="{%url 'edit_profile'%}" style="margin: 10px; text-decoration: none;">
         <button type="button" class="btn btn-default btn-inverse"><strong> Edit Profile</strong> </button> </a> 
-      <img src="https://image.flaticon.com/icons/svg/1242/1242494.svg" alt="settings" height="30px;"width="30px"></p>
+      <img src="https://image.flaticon.com/icons/svg/1242/1242494.svg" alt="settings" height="30px;"width="30px"></p> <br>
+      <p>Posts          Followers       Following</P>
 
     </div>
     
@@ -27,12 +28,12 @@
   <br> <br>
   <!--  -->
 
-  {% for i in images %}
+  {% for image in images %}
 
   <div class="row">
 
     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"> <br>
-      <img src="{{i.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px">
+      <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="300px" width="300px">
     </div>
   </div>
 

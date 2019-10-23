@@ -13,6 +13,7 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   {% endblock %}
 
@@ -21,7 +22,7 @@
     {% include "navbar.html" %}
 
     {% block content %} 
-    <h1 class='text-center'> Welcome to the Instagram </h1> 
+
     {%endblock%}
 
     {% block scripts %}

@@ -45,7 +45,7 @@ def profile(request):
     current_user = request.user
     profile = Profile.objects.filter(id=current_user.id)
     images = Image.objects.filter(username= current_user)
-    images = Image.objects.all()
+    # images = Image.objects.all()
     if request.method == 'POST':
         form = NewProfileForm(request.POST, request.FILES)
         if form.is_valid():
